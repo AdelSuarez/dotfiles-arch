@@ -186,24 +186,14 @@
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "interval": 1,
     "format-wifi": "{essid} ",
     "format-ethernet": "{ipaddr}/{cidr} ",
-    "tooltip-format": "{ifname} via {gwaddr} ",
+    "tooltip-format": "{ifname} via {gwaddr} \n{ifname}: {ipaddr}/{cidr}\nSSID: {essid} {bandwidthDownBits:3} {bandwidthUpBits:3} ",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "format-alt": " {bandwidthDownBits:3}    {bandwidthUpBits:3}"
   },
-
-  // "network": {
-  //   // "interface": "wlp2*", // (Optional) To force the use of this interface
-  //   "interval": 1,
-  //   "format-wifi": "{essid}    ↓{bandwidthDownBits:3} ↑{bandwidthUpBits:3}",
-  //   "format-ethernet": "{ipaddr}/{cidr}   ↓{bandwidthDownBits:3} ↑{bandwidthUpBits:3}",
-  //   "tooltip-format": "{ifname} via {gwaddr} ",
-  //   "format-linked": "{ifname} (No IP) ",
-  //   "format-disconnected": "Disconnected ⚠",
-  //   "format-alt": "{ifname}: {ipaddr}/{cidr}"
-  // },
 
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
