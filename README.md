@@ -13,13 +13,13 @@ Los archivos ya contiene las configuraciones correspondientes, a continuación s
 
 ![](/assets/cap1.png)
 
-##### Instaldor de firefox
+#### Instaldor de firefox
 
 ```bash
 sudo pacman -S firefox
 ```
 
-##### Git
+#### Git
 
 Gestor de versiones
 
@@ -27,7 +27,7 @@ Gestor de versiones
 sudo pacman -S git
 ```
 
-##### Instaldor de yay
+#### Instaldor de yay
 
 Gestor de paquetes de aur.
 
@@ -35,7 +35,7 @@ Gestor de paquetes de aur.
 sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 ```
 
-##### Audio
+#### Audio
 
 Controlador de audio.
 
@@ -43,7 +43,7 @@ Controlador de audio.
 sudo pacman -S pavucontrol
 ```
 
-##### Brillo de la pantalla
+#### Brillo de la pantalla
 
 Controlador del brillo de la pantalla con las teclas especiales.
 
@@ -58,7 +58,7 @@ bindel = ,XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+
 bindel = ,XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-
 ```
 
-##### Capture de pantalla
+#### Capture de pantalla
 
 Controlador para secar captures de pantalla, tanto pantalla completa como partes seleccionadas.
 
@@ -73,7 +73,7 @@ bind = , PRINT, exec, mkdir -p ~/Images/Cap &&  hyprshot -m output -o ~/Images/C
 bind =  SHIFT, PRINT, exec, mkdir -p ~/Images/Cap && hyprshot -m region -o ~/Images/Cap
 ```
 
-##### Luz azul de pantalla
+#### Luz azul de pantalla
 
 Paquete para la luz azul va ligado a configuracion de hyprsunset.conf
 
@@ -81,7 +81,7 @@ Paquete para la luz azul va ligado a configuracion de hyprsunset.conf
 sudo pacman -S hyprsunset
 ```
 
-##### Seleccion de color
+#### Seleccion de color
 
 Controlador para obtener el color seleccionado por el cursor.
 
@@ -99,7 +99,7 @@ bind = SUPER CTRL, C, exec, hyprpicker -a -f rgb
 bind = SUPER ALT, C, exec, hyprpicker -a -f hex
 ```
 
-##### Display manager
+#### Display manager
 
 Administador de ventanas y login del sistema.
 
@@ -107,7 +107,7 @@ Administador de ventanas y login del sistema.
 sudo pacman -S sddm
 ```
 
-##### Thunar
+#### Thunar
 
 Explorador de archivos.
 
@@ -115,7 +115,7 @@ Explorador de archivos.
 sudo pacman -S thunar
 ```
 
-##### Rofi
+#### Rofi
 
 Gestor de vista de aplicacion.
 
@@ -123,7 +123,7 @@ Gestor de vista de aplicacion.
 sudo pacman -S rofi
 ```
 
-##### Visual studio code
+#### Visual studio code
 
 Editor de codigo.
 
@@ -131,7 +131,7 @@ Editor de codigo.
 sudo yay -S visual-studio-code-bin
 ```
 
-##### Fuentes
+#### Fuentes
 
 Fuentes de texto que contienen emojis.
 
@@ -142,7 +142,7 @@ sudo pacman -S noto-fonts-emoji
 sudo pacman -S noto-fonts-extra
 ```
 
-##### Fastfetch
+#### Fastfetch
 
 Para mostrar la informacion del sistema en la terminal.
 
@@ -150,7 +150,7 @@ Para mostrar la informacion del sistema en la terminal.
 sudo pacman -S fastfetch
 ```
 
-##### Spotify
+#### Spotify
 
 Se instala desde la pqueteria de aur.
 
@@ -158,7 +158,7 @@ Se instala desde la pqueteria de aur.
 sudo yay -S spotify
 ```
 
-##### 7z
+#### 7z
 
 Gestor de archivos comprimidos
 
@@ -175,7 +175,7 @@ Comandos principales:
 7z x mi_archivo.7z
 ```
 
-##### Instalar rust
+#### Instalar rust
 
 Instalacion desde la pagina principal.
 
@@ -189,7 +189,7 @@ Intalacion desde los paquetes de arch.
 sudo pacman -S rust
 ```
 
-##### Instalar alacritty
+#### Instalar alacritty
 
 Instalacion desde la cargo.
 
@@ -203,7 +203,7 @@ Instalacion desde los paquetes de arch.
 sudo pacman -S alacritty
 ```
 
-##### [Nerd Font](https://www.nerdfonts.com/cheat-sheet)
+#### [Nerd Font](https://www.nerdfonts.com/cheat-sheet)
 
 Glifos de fuentes de iconos
 
