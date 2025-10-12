@@ -4,7 +4,7 @@
 
 Los archivos ya contiene las configuraciones correspondientes, a continuación se encontraran las instalaciones de paquetes necesarios y uso de los atajos de teclado.
 
-> [!NOTA]
+> [!NOTE]
 > Verificar si los archivos de las carpetas scripts, tienen permiso de ejecución, si no los tiene hacerlo con el comando.
 >
 > ```bash
