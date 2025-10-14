@@ -1,8 +1,8 @@
 # Configuración del entorno Arch
 
-## Hyprland y wayland
+## Hyprland y waybar.
 
-Los archivos ya contiene las configuraciones correspondientes, a continuación se encontraran las instalaciones de paquetes necesarios y uso de los atajos de teclado.
+Los archivos ya contienen las configuraciones correspondientes, a continuación se encontraran las instalaciones de paquetes necesarios y uso de los atajos de teclado.
 
 > [!NOTE]
 > Verificar si los archivos de las carpetas scripts, tienen permiso de ejecución, si no los tiene hacerlo con el comando.
@@ -13,7 +13,7 @@ Los archivos ya contiene las configuraciones correspondientes, a continuación s
 
 ![](/assets/cap1.png)
 
-### Instaldor de firefox
+### firefox
 
 ```bash
 sudo pacman -S firefox
@@ -27,7 +27,7 @@ Gestor de versiones
 sudo pacman -S git
 ```
 
-### Instaldor de yay
+### Instalador de yay
 
 Gestor de paquetes de aur.
 
@@ -60,13 +60,13 @@ bindel = ,XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-
 
 ### Capture de pantalla
 
-Controlador para secar captures de pantalla, tanto pantalla completa como partes seleccionadas.
+Controlador para capturas de pantalla, tanto pantalla completa como partes seleccionadas.
 
 ```bash
 sudo pacman -S hyprshot
 ```
 
-En la configuracion de hypr se coloca esto:
+En la configuración de hypr se coloca esto:
 
 ```bash
 bind = , PRINT, exec, mkdir -p ~/Images/Cap &&  hyprshot -m output -o ~/Images/Cap
@@ -75,13 +75,13 @@ bind =  SHIFT, PRINT, exec, mkdir -p ~/Images/Cap && hyprshot -m region -o ~/Ima
 
 ### Luz azul de pantalla
 
-Paquete para la luz azul va ligado a configuracion de hyprsunset.conf
+Paquete para la luz azul, va ligado a configuración de hyprsunset.conf
 
 ```bash
 sudo pacman -S hyprsunset
 ```
 
-### Seleccion de color
+### Selección de color
 
 Controlador para obtener el color seleccionado por el cursor.
 
@@ -89,7 +89,7 @@ Controlador para obtener el color seleccionado por el cursor.
 sudo pacman -S hyprpicker
 ```
 
-En la configuracion de hypr se coloca esto:
+En la configuración de hypr se coloca esto:
 
 ```bash
 bind = SUPER, C, exec, hyprpicker -a
@@ -117,7 +117,7 @@ sudo pacman -S thunar
 
 ### Rofi
 
-Gestor de vista de aplicacion.
+Gestor de lanzador de aplicaciones.
 
 ```bash
 sudo pacman -S rofi
@@ -125,10 +125,10 @@ sudo pacman -S rofi
 
 ### Visual studio code
 
-Editor de codigo.
+Editor de código.
 
 ```bash
-sudo yay -S visual-studio-code-bin
+yay -S visual-studio-code-bin
 ```
 
 ### Fuentes
@@ -144,7 +144,7 @@ sudo pacman -S noto-fonts-extra
 
 ### Fastfetch
 
-Para mostrar la informacion del sistema en la terminal.
+Para mostrar la información del sistema en la terminal.
 
 ```bash
 sudo pacman -S fastfetch
@@ -152,10 +152,106 @@ sudo pacman -S fastfetch
 
 ### Spotify
 
-Se instala desde la pqueteria de aur.
+Se instala desde la paqueteria de aur.
 
 ```bash
-sudo yay -S spotify
+yay -S spotify
+```
+
+##### Módulo de spotify para waybar
+
+Se debe crear un script que puede tener como nombre "mediaplayer.sh" en el directorio de waybar, el cual debe contener lo siguiente:
+
+```bash
+#!/bin/bash
+
+# Desactivar completamente el buffering para salida inmediata
+exec stdbuf -o0 bash -c '
+last_output=""
+
+while true; do
+    # Verificar Spotify de manera robusta
+    if playerctl -p spotify status >/dev/null 2>&1; then
+        title=$(playerctl -p spotify metadata title 2>/dev/null)
+        artist=$(playerctl -p spotify metadata artist 2>/dev/null)
+        status=$(playerctl -p spotify status 2>/dev/null)
+
+        if [[ -n "$title" ]]; then
+            # Formatear texto
+            if [[ -n "$artist" ]]; then
+                text="$artist - $title"
+            else
+                text="$title"
+            fi
+
+            # Acortar si es muy largo
+            if [[ ${#text} -gt 35 ]]; then
+                text="${text:0:32}..."
+            fi
+
+            # Agregar icono según estado
+            if [[ "$status" == "Paused" ]]; then
+                current_output="{\"text\": \" $text\", \"class\": \"custom-media\"}"
+            else
+                current_output="{\"text\": \" $text\", \"class\": \"custom-media\"}"
+            fi
+        else
+            current_output="{\"text\": \"\", \"class\": \"custom-media\"}"
+        fi
+    else
+        current_output="{\"text\": \"\", \"class\": \"custom-media\"}"
+    fi
+
+    # Imprimir SOLO si cambió y forzar salida inmediata
+    if [[ "$current_output" != "$last_output" ]]; then
+        echo "$current_output"
+        # Forzar flush inmediato
+        sleep 0.001
+        last_output="$current_output"
+    fi
+
+    sleep 1
+done
+'
+```
+
+Luego el .sh se le debe dar permisos de ejecución:
+
+```bash
+chmod +x mediaplayer.sh
+```
+
+luego en el config.jsonc del directorio de waybar se coloca lo siguiente:
+
+```bash
+  "custom/media": {
+    "exec": "~/.config/waybar/scripts/mediaplayer.sh",
+    "format": "{}",
+    "return-type": "json",
+    "max-length": 40,
+    "restart-interval": 5,
+    "on-click": "playerctl -p spotify play-pause",
+    "on-scroll-up": "playerctl -p spotify next",
+    "on-scroll-down": "playerctl -p spotify previous"
+  },
+```
+
+y se indica en que parte de la barra de waybar va a ir:
+
+```bash
+  "modules-left": [
+    "custom/media"
+  ],
+```
+
+![](/assets/cap2.png)
+
+### Daemon para perfiles de poder
+
+Gestiona los perfiles de poder del procesador.
+
+```bash
+sudo pacman -S power-profiles-daemon
 ```
 
 ### 7z
@@ -177,13 +273,13 @@ Comandos principales:
 
 ### Instalar rust
 
-Instalacion desde la pagina principal.
+Instalación desde la página principal.
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-Intalacion desde los paquetes de arch.
+Instalación desde los paquetes de arch.
 
 ```bash
 sudo pacman -S rust
@@ -191,13 +287,13 @@ sudo pacman -S rust
 
 ### Instalar alacritty
 
-Instalacion desde la cargo.
+Instalación desde la cargo.
 
 ```bash
 cargo install alacritty
 ```
 
-Instalacion desde los paquetes de arch.
+Instalación desde los paquetes de arch.
 
 ```bash
 sudo pacman -S alacritty
@@ -211,6 +307,173 @@ Glifos de fuentes de iconos
 https://www.nerdfonts.com/cheat-sheet
 ```
 
+### Módulo de distribución de teclado (US - ES)
+
+Módulo diseñado para cambiar la distribución del teclado, el cual va ligado con hyprland y waybar, primero se crea un script que puede tener como nombre "keyboard-layout.sh" el cual debe contener:
+
+```bash
+#!/bin/bash
+# Verifica en hypr la ultima distribución seleccionada
+STATE_FILE="$HOME/.config/hypr/current-kb-layout"
+
+# Si no existe el archivo, crear con valor por defecto ES
+if [[ ! -f "$STATE_FILE" ]]; then
+    echo "es" > "$STATE_FILE"
+fi
+
+# Leer layout actual
+layout=$(cat "$STATE_FILE")
+
+# Emitir en formato JSON para Waybar
+case "$layout" in
+    "us")
+        echo '{"text":"US","class":"us"}'
+        ;;
+    "es")
+        echo '{"text":"ES","class":"es"}'
+        ;;
+    *)
+        echo '{"text":"??","class":"unknown"}'
+        ;;
+esac
+```
+
+luego se le da permisos de ejecución:
+
+```bash
+chmod +x keyboard-layout.sh
+```
+
+luego en el config.jsonc del directorio waybar se coloca lo siguiente:
+
+```bash
+  "custom/keyboard-layout": {
+    "exec": "~/.config/waybar/scripts/keyboard-layout.sh",
+    "return-type": "json",
+    "format": "⌨ {text}",
+    "on-click": "~/.config/hypr/scripts/switch-kb-layout.sh",
+    "interval": 2,
+    "restart-interval": 1
+  },
+```
+
+y se indica en que parte de la barra de waybar va a ir:
+
+```bash
+  "modules-right": [
+    "mpd",
+    "pulseaudio",
+    "network",
+    "cpu",
+    "memory",
+    "temperature",
+    "backlight",
+    "power-profiles-daemon",
+    "battery",
+    "custom/keyboard-layout", // <-----------
+    "clock",
+    "tray"
+  ],
+```
+
+continuamos con la configuración de hyprland, en el directorio de hypr, se crean los siguientes scripts, el primero puede tener como nombre "init-kb-layout.sh" y debe contener:
+
+```bash
+#!/bin/bash
+
+STATE_FILE="$HOME/.config/hypr/current-kb-layout"
+
+# Esperar un poco a que Hyprland esté listo
+sleep 2
+
+# Detectar layout actual del sistema
+system_layout=$(hyprctl devices | grep "active keymap:" | head -1 | awk '{print $3}')
+
+if [[ "$system_layout" == "Spanish" || "$system_layout" == "es" ]]; then
+    echo "es" > "$STATE_FILE"
+else
+    echo "us" > "$STATE_FILE"
+fi
+
+# Actualizar Waybar
+pkill -SIGRTMIN+1 waybar
+```
+
+el segundo puede tener como nombre "switch-kb-layout.sh" y debe contener:
+
+```bash
+#!/bin/bash
+
+STATE_FILE="$HOME/.config/hypr/current-kb-layout"
+
+# Función para obtener layout actual del sistema
+get_system_layout() {
+    hyprctl devices | grep "active keymap:" | head -1 | awk '{print $3}'
+}
+
+# Función para guardar layout
+save_layout() {
+    echo "$1" > "$STATE_FILE"
+}
+
+# Función para notificar a Waybar
+update_waybar() {
+    pkill -SIGRTMIN+1 waybar
+}
+
+# Si no existe el archivo, detectar layout actual del sistema
+if [[ ! -f "$STATE_FILE" ]]; then
+    system_layout=$(get_system_layout)
+    if [[ "$system_layout" == "Spanish" || "$system_layout" == "es" ]]; then
+        save_layout "es"
+        current="es"
+    else
+        save_layout "us"
+        current="us"
+    fi
+else
+    current=$(cat "$STATE_FILE")
+fi
+
+# Alternar layout
+if [[ "$current" == "us" ]]; then
+    new_layout="es"
+    hyprctl keyword input:kb_layout es
+    notify-send "⌨ Teclado" "Cambiado a ES" -t 1000
+else
+    new_layout="us"
+    hyprctl keyword input:kb_layout us
+    notify-send "⌨ Teclado" "Cambiado a US" -t 1000
+fi
+
+# Guardar nuevo estado
+save_layout "$new_layout"
+
+# Actualizar Waybar
+update_waybar
+```
+
+ambos scripts deben tener permisos de ejecución:
+
+```bash
+chmod +x init-kb-layout.sh
+chmod +x switch-kb-layout.sh
+```
+
+por ultimo, en el archivo hyprland.config se coloca:
+
+```bash
+exec-once = ~/.config/hypr/scripts/init-kb-layout.sh
+```
+
+y el bind del teclado es:
+
+```bash
+bind = $mainMod, Space, exec, ~/.config/hypr/scripts/switch-kb-layout.sh
+```
+
+![](/assets/cap3.png)
+
 # Configuración de teclas (hypr)
 
 | Atajo                        | Acción                                            |
@@ -223,7 +486,7 @@ https://www.nerdfonts.com/cheat-sheet
 | **mod + w**                  | cerrar ventana                                    |
 | **mod + [12345678]**         | ir al espacio de trabajo [12345678]               |
 | **mod + shift + [12345678]** | mueve la ventana al espacio de trabajo [12345678] |
-| **mod + m**                  | cerrar sesion                                     |
+| **mod + m**                  | cerrar sesión                                     |
 | **mod + space**              | cambio de distribución de teclado (us/es)         |
 
 #### Para gestos de ventanas
@@ -248,7 +511,7 @@ https://www.nerdfonts.com/cheat-sheet
 | Atajo             | Acción                        |
 | ----------------- | ----------------------------- |
 | **print**         | capture completo de pantalla  |
-| **shift + print** | capture del area seleccionada |
+| **shift + print** | capture del área seleccionada |
 
 #### Selector de color
 

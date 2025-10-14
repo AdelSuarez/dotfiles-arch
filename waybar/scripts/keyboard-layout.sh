@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# Verifica en hypr la ultima distribución seleccionada
 STATE_FILE="$HOME/.config/hypr/current-kb-layout"
 
 # Si no existe el archivo, crear con valor por defecto ES
