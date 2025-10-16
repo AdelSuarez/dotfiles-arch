@@ -140,6 +140,21 @@ sudo pacman -S noto-fonts
 sudo pacman -S noto-fonts-cjk
 sudo pacman -S noto-fonts-emoji
 sudo pacman -S noto-fonts-extra
+sudo pacman -S otf-font-awesome
+sudo pacman -S ttf-fira-code
+sudo pacman -S ttf-hack
+sudo pacman -S ttf-hack-nerd
+sudo pacman -S ttf-inconsolata
+sudo pacman -S ttf-jetbrains-mono
+sudo pacman -S ttf-meslo-nerd
+sudo pacman -S ttf-nerd-fonts-symbols
+sudo pacman -S woff2-font-awesome
+```
+
+### Portapapeles
+
+```bash
+sudo pacman -S wl-clipboard
 ```
 
 ### Fastfetch
