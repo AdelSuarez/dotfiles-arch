@@ -107,12 +107,12 @@ Administador de ventanas y login del sistema.
 sudo pacman -S sddm
 ```
 
-### Thunar
+### Nemo
 
 Explorador de archivos.
 
 ```bash
-sudo pacman -S thunar
+sudo pacman -S nemo
 ```
 
 ### Rofi
