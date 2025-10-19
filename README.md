@@ -115,6 +115,14 @@ Explorador de archivos.
 sudo pacman -S nemo
 ```
 
+#### Extensión nemo-fileroller
+
+Es una extensión del administrador de archivos de Nemo que permite crear y extraer archivos comprimidos (como .zip, .tar.gz, etc.) directamente desde el menú contextual del clic derecho.
+
+```bash
+sudo pacman -S nemo-fileroller
+```
+
 ### Rofi
 
 Gestor de lanzador de aplicaciones.
