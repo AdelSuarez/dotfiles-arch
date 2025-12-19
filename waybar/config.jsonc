@@ -30,6 +30,7 @@
     // "custom/updates",
     // "battery#bat2",
     "clock",
+    "bluetooth",
     "tray"
     // "custom/power"
   ],
@@ -198,7 +199,7 @@
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
     "format": "{volume}% {icon}   {format_source}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth": "{volume}% {icon}  {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
     "format-muted": " {format_source}",
     "format-source": "{volume}% ",
@@ -264,7 +265,7 @@
       "suspend": "systemctl suspend",
       "hibernate": "systemctl hibernate"
     }
-  }
+  },
 
   // "custom/updates": {
   //   "exec": "~/.config/waybar/scripts/updates.sh",
@@ -273,4 +274,16 @@
   //   "format": "  {}",
   //   "tooltip": false
   // }
+
+  "bluetooth": {
+    "format": "",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    // "format-device-preference": [ "device1", "device2" ], // Prioridad de dispositivos
+    "tooltip-format": "{controller_alias}\t\n{num_connections} conectados",
+    "tooltip-format-connected": "{controller_alias}\t\n{num_connections} conectados\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%",
+    "on-click": "blueman-manager" // Opcional: abre el gestor al hacer clic
+  }
 }

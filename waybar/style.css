@@ -100,7 +100,8 @@ button:hover {
 #power-profiles-daemon,
 #custom-updates,
 #custom-keyboard-layout,
-#mpd {
+#mpd,
+#bluetooth {
   padding: 3px 12px;
   margin-bottom: 0.4em;
   margin-right: 0.2em;
@@ -147,6 +148,18 @@ button:hover {
     background-color: #ffffff;
     color: #000000;
   }
+}
+
+#bluetooth.connected {
+  background-color: #7aa2f7; /* Color cuando hay algo conectado */
+}
+
+#bluetooth.on {
+  background-color: #26a65b; /* Color cuando no hay nada conectado */
+}
+
+#bluetooth {
+  background-color: #393e50; /* Color cuando está apagado */
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
