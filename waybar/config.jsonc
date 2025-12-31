@@ -8,8 +8,8 @@
   // Choose the order of the modules
   "modules-left": [
     "hyprland/workspaces",
-    "sway/mode",
-    "sway/scratchpad",
+    // "sway/mode",
+    // "sway/scratchpad",
     "custom/media"
   ],
   "modules-center": ["hyprland/window"],
@@ -97,7 +97,7 @@
       "on": " "
     },
     "single-icons": {
-      "on": "1 "
+      "on": " "
     },
     "state-icons": {
       "paused": "",
@@ -284,6 +284,7 @@
     "tooltip-format-connected": "{num_connections} conectados\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}",
     "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%",
-    "on-click": "blueman-manager" // Opcional: abre el gestor al hacer clic
+    // "on-click": "blueman-manager" // Opcional: abre el gestor al hacer clic
+    "on-click": "bash -c 'if bluetoothctl show | grep -q \"Powered: yes\"; then bluetoothctl power off; else bluetoothctl power on; fi'"
   }
 }
