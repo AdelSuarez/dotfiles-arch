@@ -20,7 +20,7 @@
     "network",
     "cpu",
     "memory",
-    "temperature",
+    // "temperature",
     "backlight",
     // "keyboard-state",
     // "sway/language",
@@ -281,7 +281,7 @@
     "format-connected-battery": " {device_alias} {device_battery_percentage}%",
     // "format-device-preference": [ "device1", "device2" ], // Prioridad de dispositivos
     "tooltip-format": "{controller_alias}\t\n{num_connections} conectados",
-    "tooltip-format-connected": "{controller_alias}\t\n{num_connections} conectados\n{device_enumerate}",
+    "tooltip-format-connected": "{num_connections} conectados\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}",
     "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%",
     "on-click": "blueman-manager" // Opcional: abre el gestor al hacer clic
