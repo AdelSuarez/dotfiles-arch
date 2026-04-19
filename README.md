@@ -35,6 +35,14 @@ Gestor de paquetes de aur.
 sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 ```
 
+### NetworkManager
+
+Para interfaz de redes wifi
+
+```bash
+sudo pacman -S networkmanager network-manager-applet
+```
+
 ### Audio
 
 Controlador de audio.
