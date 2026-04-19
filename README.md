@@ -58,6 +58,24 @@ bindel = ,XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+
 bindel = ,XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-
 ```
 
+### Waybar
+
+```bash
+sudo pacman -S waybar
+```
+
+### Hyprpaper
+
+```bash
+sudo pacman -S hyprpaper
+```
+
+### Instalar alacritty
+
+```bash
+sudo pacman -S alacritty
+```
+
 ### Capture de pantalla
 
 Controlador para capturas de pantalla, tanto pantalla completa como partes seleccionadas.
@@ -337,12 +355,6 @@ Instalación desde la cargo.
 
 ```bash
 cargo install alacritty
-```
-
-Instalación desde los paquetes de arch.
-
-```bash
-sudo pacman -S alacritty
 ```
 
 #### [Nerd Font](https://www.nerdfonts.com/cheat-sheet)
