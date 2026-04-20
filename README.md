@@ -207,6 +207,35 @@ Para mostrar la información del sistema en la terminal.
 sudo pacman -S fastfetch
 ```
 
+### Sddm Custom
+
+Personalizacion en el inicio de sesion.
+
+```bash
+yay -Sy catppuccin-sddm-theme-mocha
+```
+
+Luego en /etc/ se crear una carpeta llamada sddm.conf.d
+
+```bash
+cd /etc/
+sudo mkdir sddm.conf.d
+```
+
+Accedemos a esa carpeta y luego se crea un archivo theme.conf
+
+```bash
+cd sddm.conf.d
+sudo touch theme.conf
+```
+
+Y dentro del archivo colocamos
+
+```conf
+[Theme]
+Current = catppuccin-mocha-blue
+```
+
 ### Spotify
 
 Se instala desde la paqueteria de aur.
