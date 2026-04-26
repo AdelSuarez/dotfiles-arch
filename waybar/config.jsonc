@@ -136,7 +136,7 @@
     "tooltip": false
   },
   "memory": {
-    "format": "{}% "
+    "format": "{}% "
   },
   // "temperature": {
   //   "thermal-zone": 4,
@@ -170,7 +170,8 @@
     "format": "{capacity}% {icon}",
     "format-full": "{capacity}% {icon}",
     "format-charging": "{capacity}% ",
-    "format-plugged": "{capacity}% ",
+    "format-plugged": "{capacity}% 󰂄",
+    // "format-plugged": "{capacity}% ",
     "format-alt": "{time} {icon}",
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
@@ -193,12 +194,15 @@
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
     "interval": 1,
-    "format-wifi": "{essid} ",
+    // "format-wifi": "{essid} ",
+    "format-wifi": "{essid} {icon}",
     "format-ethernet": "{ipaddr}/{cidr} ",
-    "tooltip-format": "{ifname} via {gwaddr} \n{ifname}: {ipaddr}/{cidr}\nSSID: {essid} {bandwidthDownBits:3} {bandwidthUpBits:3} ",
+    "tooltip-format": "{ifname} via {gwaddr} \n{ifname}: {ipaddr}/{cidr}\nSSID: {essid} -  {bandwidthDownBits:3}  {bandwidthUpBits:3} ",
     "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "Desconectado ⚠",
-    "format-alt": " {bandwidthDownBits:3}    {bandwidthUpBits:3}"
+    // "format-disconnected": "Desconectado ⚠",
+    "format-disconnected": "Desconectado 󰖪",
+    "format-alt": " {bandwidthDownBits:3}    {bandwidthUpBits:3}",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
   },
 
   "pulseaudio": {

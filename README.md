@@ -386,6 +386,19 @@ Instalación desde los paquetes de arch.
 sudo pacman -S rust
 ```
 
+# Modo Dark
+
+1. Instalar la insterfaz de configuracion
+
+```bash
+sudo pacman -S nwg-look
+```
+
+2. Escribe nwg-look en tu terminal.
+3. En la lista de temas, elige Adwaita-dark.
+4. Dale al botón "Apply".
+   - Esto creará físicamente los archivos en ~/.config/gtk-3.0/settings.ini y ~/.config/gtk-4.0/settings.ini, que es lo que leen las apps de GNOME
+
 ### Instalar alacritty
 
 Instalación desde la cargo.
