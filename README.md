@@ -13,26 +13,42 @@ Los archivos ya contienen las configuraciones correspondientes, a continuación 
 
 ![](/assets/cap1.png)
 
-### firefox
+#### [Nerd Font](https://www.nerdfonts.com/cheat-sheet)
 
-```bash
-sudo pacman -S firefox
+Glifos de fuentes de iconos
+
+```
+https://www.nerdfonts.com/cheat-sheet
 ```
 
-### Git
-
-Gestor de versiones
-
-```bash
-sudo pacman -S git
-```
-
-### Instalador de yay
+## Instalador de yay
 
 Gestor de paquetes de aur.
 
 ```bash
 sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+```
+
+---
+
+# Paquetes
+
+### Instalar alacritty
+
+```bash
+sudo pacman -S alacritty
+```
+
+### Waybar
+
+```bash
+sudo pacman -S waybar
+```
+
+### Hyprpaper
+
+```bash
+sudo pacman -S hyprpaper
 ```
 
 ### NetworkManager
@@ -66,22 +82,20 @@ bindel = ,XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+
 bindel = ,XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-
 ```
 
-### Waybar
+### Daemon para perfiles de poder
+
+Gestiona los perfiles de poder del procesador.
 
 ```bash
-sudo pacman -S waybar
+sudo pacman -S power-profiles-daemon
 ```
 
-### Hyprpaper
+### SwayOsd
+
+Una ventana OSD para acciones comunes como volumen, reproducción, y mas opciones.
 
 ```bash
-sudo pacman -S hyprpaper
-```
-
-### Instalar alacritty
-
-```bash
-sudo pacman -S alacritty
+sudo pacman -S swayosd
 ```
 
 ### Capture de pantalla
@@ -141,7 +155,7 @@ Explorador de archivos.
 sudo pacman -S nemo
 ```
 
-#### Extensión nemo-fileroller
+##### Extensión nemo-fileroller
 
 Es una extensión del administrador de archivos de Nemo que permite crear y extraer archivos comprimidos (como .zip, .tar.gz, etc.) directamente desde el menú contextual del clic derecho.
 
@@ -163,6 +177,20 @@ Editor de código.
 
 ```bash
 yay -S visual-studio-code-bin
+```
+
+### firefox
+
+```bash
+sudo pacman -S firefox
+```
+
+### Git
+
+Gestor de versiones
+
+```bash
+sudo pacman -S git
 ```
 
 ### Fuentes
@@ -244,7 +272,65 @@ Se instala desde la paqueteria de aur.
 yay -S spotify
 ```
 
-##### Módulo de spotify para waybar
+### 7z
+
+Gestor de archivos comprimidos
+
+```bash
+sudo pacman -S 7zip
+```
+
+Comandos principales:
+
+```bash
+#Comprimir archivo
+7z a mi_archivo.7z /ruta/a/mi/archivo
+#Descomprimir archivo
+7z x mi_archivo.7z
+```
+
+### Instalar rust
+
+Instalación desde la página principal.
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+Instalación desde los paquetes de arch.
+
+```bash
+sudo pacman -S rust
+```
+
+### Instalar alacritty
+
+Instalación desde la cargo.
+
+```bash
+cargo install alacritty
+```
+
+---
+
+# Modo Dark
+
+1. Instalar la insterfaz de configuracion
+
+```bash
+sudo pacman -S nwg-look
+```
+
+2. Escribe nwg-look en tu terminal.
+3. En la lista de temas, elige Adwaita-dark.
+4. Dale al botón "Apply".
+   - Esto creará físicamente los archivos en ~/.config/gtk-3.0/settings.ini y ~/.config/gtk-4.0/settings.ini, que es lo que leen las apps de GNOME
+
+---
+
+# Modulos Personalizados
+
+## Spotify
 
 Se debe crear un script que puede tener como nombre "mediaplayer.sh" en el directorio de waybar, el cual debe contener lo siguiente:
 
@@ -347,75 +433,7 @@ y se indica en que parte de la barra de waybar va a ir:
 
 ![](/assets/cap2.png)
 
-### Daemon para perfiles de poder
-
-Gestiona los perfiles de poder del procesador.
-
-```bash
-sudo pacman -S power-profiles-daemon
-```
-
-### 7z
-
-Gestor de archivos comprimidos
-
-```bash
-sudo pacman -S 7zip
-```
-
-Comandos principales:
-
-```bash
-#Comprimir archivo
-7z a mi_archivo.7z /ruta/a/mi/archivo
-#Descomprimir archivo
-7z x mi_archivo.7z
-```
-
-### Instalar rust
-
-Instalación desde la página principal.
-
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
-
-Instalación desde los paquetes de arch.
-
-```bash
-sudo pacman -S rust
-```
-
-# Modo Dark
-
-1. Instalar la insterfaz de configuracion
-
-```bash
-sudo pacman -S nwg-look
-```
-
-2. Escribe nwg-look en tu terminal.
-3. En la lista de temas, elige Adwaita-dark.
-4. Dale al botón "Apply".
-   - Esto creará físicamente los archivos en ~/.config/gtk-3.0/settings.ini y ~/.config/gtk-4.0/settings.ini, que es lo que leen las apps de GNOME
-
-### Instalar alacritty
-
-Instalación desde la cargo.
-
-```bash
-cargo install alacritty
-```
-
-#### [Nerd Font](https://www.nerdfonts.com/cheat-sheet)
-
-Glifos de fuentes de iconos
-
-```
-https://www.nerdfonts.com/cheat-sheet
-```
-
-### Módulo de distribución de teclado (US - ES)
+## Distribución de teclado (US - ES)
 
 Módulo diseñado para cambiar la distribución del teclado, el cual va ligado con hyprland y waybar, primero se crea un script que puede tener como nombre "keyboard-layout.sh" el cual debe contener:
 
@@ -581,6 +599,8 @@ bind = $mainMod, Space, exec, ~/.config/hypr/scripts/switch-kb-layout.sh
 ```
 
 ![](/assets/cap3.png)
+
+---
 
 # Configuración de teclas (hypr)
 
