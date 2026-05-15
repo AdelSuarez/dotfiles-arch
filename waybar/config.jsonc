@@ -22,7 +22,7 @@
     "backlight",
     // "keyboard-state",
     // "sway/language",
-    "custom/keyboard-layout",
+    // "custom/keyboard-layout",
     // "custom/updates",
     // "battery#bat2",
     "pulseaudio",
@@ -34,6 +34,7 @@
     "tray"
     // "custom/power"
   ],
+
   //   Modules configuration
   "hyprland/workspaces": {
     "disable-scroll": true,
@@ -55,6 +56,15 @@
       "urgent": "",
       "focused": "",
       "default": ""
+    }
+  },
+
+  "hyprland/window": {
+    "format": "{class}",
+    "rewrite": {
+      "Alacritty": "󰆍  Alacritty",
+      "Code": "󰨞  VS Code",
+      "spotify": " Spotify"
     }
   },
 
