@@ -64,7 +64,11 @@
     "rewrite": {
       "Alacritty": "󰆍  Alacritty",
       "Code": "󰨞  VS Code",
-      "spotify": " Spotify"
+      "spotify": " Spotify",
+      "Firefox": " Firefox",
+      "Discord": "  Discord",
+      "Steam": " Steam",
+      "dev.zed.Zed": "Zed"
     }
   },
 

@@ -152,7 +152,7 @@ local mainMod = "SUPER"
 
 -- Basic Bindings
 hl.bind(mainMod .. " + return", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + W",      hl.dsp.window.close())
+hl.bind(mainMod .. " + C",      hl.dsp.window.close())
 hl.bind(mainMod .. " + M",      hl.dsp.exit())
 hl.bind(mainMod .. " + E",      hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V",      hl.dsp.window.float({ action = "toggle" }))
@@ -163,9 +163,9 @@ hl.bind(mainMod .. " + SHIFT + F", hl.dsp.exec_cmd(browser .. " --private-window
 -- hl.bind(mainMod .. " + Space",  hl.dsp.exec_cmd("~/.config/hypr/scripts/switch-kb-layout.sh"))
 
 -- Hyprpicker
-hl.bind("SUPER + C",        hl.dsp.exec_cmd("hyprpicker -a"))
-hl.bind("SUPER + CTRL + C", hl.dsp.exec_cmd("hyprpicker -a -f rgb"))
-hl.bind("SUPER + ALT + C",  hl.dsp.exec_cmd("hyprpicker -a -f hex"))
+hl.bind("SUPER + B",        hl.dsp.exec_cmd("hyprpicker -a"))
+hl.bind("SUPER + CTRL + B", hl.dsp.exec_cmd("hyprpicker -a -f rgb"))
+hl.bind("SUPER + ALT + B",  hl.dsp.exec_cmd("hyprpicker -a -f hex"))
 
 -- Capturas de pantalla (Hyprshot)
 hl.bind(mainMod .. " + P",         hl.dsp.exec_cmd("mkdir -p ~/Images/Cap && hyprshot -m output -o ~/Images/Cap "))
