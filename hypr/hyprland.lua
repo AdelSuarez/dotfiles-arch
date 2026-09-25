@@ -18,7 +18,8 @@ hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@100", position = "1920x0", s
 local terminal    = "alacritty"
 local fileManager = "nemo"
 local menu        = "rofi -show drun -show-icons -b"
-local browser     = "firefox"
+-- local browser     = "firefox"
+local browser     = "brave"
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
@@ -58,7 +59,8 @@ hl.config({
         border_size = 2,
 
         col = {
-            active_border   = 0xff2C92B8,
+            active_border   = 0xff91bba2,
+            -- active_border   = 0xff2C92B8,
             inactive_border = 0xff525252,
         },
 

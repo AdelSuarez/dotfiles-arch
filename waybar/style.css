@@ -1,6 +1,8 @@
 * {
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-family:
+    "JetBrainsMono Nerd Font", "Symbols Nerd Font", FontAwesome, Roboto,
+    Helvetica, Arial, sans-serif;
   font-size: 13px;
 }
 
@@ -14,9 +16,9 @@ window#waybar {
   /* transition-duration: 0.5s; */
 }
 
-window#waybar.hidden {
-  /* opacity: 0.2; */
-}
+/* window#waybar.hidden { */
+/* opacity: 0.2; */
+/* } */
 
 /*
 window#waybar.empty {
@@ -57,13 +59,20 @@ button {
 }
 
 #workspaces button {
-  padding: 0 4px;
+  /* padding: 0 4px; */
+  padding: 0 3px;
+  margin: 0.4em 0;
+  /* margin-right: 0.2em; */
+  /* margin-top: 0.4em; */
+  border-radius: 4px;
   /* background-color: transparent; */
   color: #ffffff;
 }
 
 #workspaces button:hover {
-  background: rgba(0, 0, 0, 0.2);
+  /* background: rgba(0, 0, 0, 0.2);
+   */
+  background: transparent;
 }
 
 #workspaces button.focused {
@@ -73,16 +82,18 @@ button {
 
 #workspaces button.urgent {
   background-color: #eb4d4b;
+  padding: 0 3px;
+  margin: 0.4em 0;
 }
 
-#workspaces button.active {
-  /* background-color: #2980b9; */
-  background-color: #33354c;
-}
+/* #workspaces button.active { */
+/* background-color: #2980b9; */
+/* background-color: #33354c; */
+/* } */
 
-#workspaces button.active:hover {
+/* #workspaces button.active:hover {
   background-color: #262839;
-}
+} */
 
 #mode {
   background-color: #64727d;
@@ -112,17 +123,23 @@ button {
 #mpd,
 #bluetooth {
   padding: 3px 8px;
-  margin-bottom: 0.4em;
+  margin: 0.4em 0;
   /* margin-right: 0.2em; */
-  margin-top: 0.4em;
   border-radius: 4px;
   color: #c0caf5;
   background-color: #2a2b3e;
 }
 
-#window,
-#workspaces {
+#tray {
+  margin-right: 5px;
+}
+
+#window {
   margin: 0 4px;
+}
+
+#custom-arch {
+  margin: 0 8px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -135,23 +152,23 @@ button {
   margin-right: 0;
 }
 
-#clock {
-  /* background-color: #64727d; */
-  /* background-color: #393e50; */
-}
+/* #clock { */
+/* background-color: #64727d; */
+/* background-color: #393e50; */
+/* } */
 
-#battery {
-  /* background-color: #ffffff; */
-  /* background-color: #393e50; */
-  /* color: #ffffff; */
-}
+/* #battery { */
+/* background-color: #ffffff; */
+/* background-color: #393e50; */
+/* color: #ffffff; */
+/* } */
 
-#battery.charging,
-#battery.plugged {
-  /* color: #ffffff; */
-  /* background-color: #393e50; */
-  /* background-color: #26a65b; */
-}
+/* #battery.charging, */
+/* #battery.plugged { */
+/* color: #ffffff; */
+/* background-color: #393e50; */
+/* background-color: #26a65b; */
+/* } */
 
 @keyframes blink {
   to {
@@ -194,9 +211,6 @@ button {
   animation-direction: alternate; */
 }
 
-#power-profiles-daemon {
-}
-
 #power-profiles-daemon.performance {
   background-color: #f7768e;
   color: #ffffff;
@@ -231,41 +245,41 @@ label:focus {
   background-color: #000000;
 }
 
-#cpu {
-  /* background-color: #2ecc71; */
-  /* background-color: #393e50; */
-  /* color: #000000; */
-}
+/* #cpu { */
+/* background-color: #2ecc71; */
+/* background-color: #393e50; */
+/* color: #000000; */
+/* } */
 
-#memory {
-  /* background-color: #9b59b6; */
-  /* background-color: #393e50; */
-}
+/* #memory { */
+/* background-color: #9b59b6; */
+/* background-color: #393e50; */
+/* } */
 
 #disk {
   background-color: #964b00;
 }
 
-#backlight {
-  /* background-color: #90b1b1; */
-  /* background-color: #393e50; */
-}
+/* #backlight { */
+/* background-color: #90b1b1; */
+/* background-color: #393e50; */
+/* } */
 
-#network {
-  /* background-color: #2980b9; */
-  /* background-color: #393e50; */
-}
+/* #network { */
+/* background-color: #2980b9; */
+/* background-color: #393e50; */
+/* } */
 
 #network.disconnected {
   background-color: #f7768e;
   color: #ffffff;
 }
 
-#pulseaudio {
-  /* background-color: #f1c40f; */
-  /* background-color: #393e50; */
-  /* color: #000000; */
-}
+/* #pulseaudio { */
+/* background-color: #f1c40f; */
+/* background-color: #393e50; */
+/* color: #000000; */
+/* } */
 
 #pulseaudio.muted {
   background-color: #90b1b1;
@@ -295,18 +309,13 @@ label:focus {
   background-color: #ffa000;
 }
 
-#temperature {
-  /* background-color: #f0932b; */
-  /* background-color: #393e50; */
-}
+/* #temperature { */
+/* background-color: #f0932b; */
+/* background-color: #393e50; */
+/* } */
 
 #temperature.critical {
   background-color: #eb4d4b;
-}
-
-#tray {
-  /* background-color: #2980b9; */
-  /* background-color: #393e50; */
 }
 
 #tray > .passive {
@@ -318,9 +327,9 @@ label:focus {
   background-color: #eb4d4b;
 }
 
-#idle_inhibitor {
-  /* background-color: #2d3436; */
-}
+/* #idle_inhibitor { */
+/* background-color: #2d3436; */
+/* } */
 
 #idle_inhibitor.activated {
   background-color: #ecf0f1;

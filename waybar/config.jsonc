@@ -7,6 +7,7 @@
   "spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": [
+    "custom/arch",
     "hyprland/workspaces",
     // "sway/mode",
     // "sway/scratchpad",
@@ -29,8 +30,8 @@
     "network",
     "power-profiles-daemon",
     "bluetooth",
-    "battery",
     "clock",
+    "battery",
     "tray"
     // "custom/power"
   ],
@@ -42,12 +43,13 @@
     "warp-on-scroll": false,
     "format": "{icon}",
     "format-icons": {
-      "1": "󰣇",
+      "1": "1",
       "2": "2",
       "3": "3",
       "4": "4",
       "5": "5",
       "6": "6",
+      "7": "7",
       // "2": "󰨞",
       // "3": "",
       // "4": "",
@@ -55,7 +57,8 @@
       // "6": "󰉋",
       "urgent": "",
       "focused": "",
-      "default": ""
+      "default": "",
+      "active": "󰝤"
     }
   },
 
@@ -63,12 +66,13 @@
     "format": "{class}",
     "rewrite": {
       "Alacritty": "󰆍  Alacritty",
-      "Code": "󰨞  VS Code",
+      "com.microsoft.VSCode": "󰨞  VS Code",
       "spotify": " Spotify",
       "Firefox": " Firefox",
       "Discord": "  Discord",
       "Steam": " Steam",
-      "dev.zed.Zed": "Zed"
+      "dev.zed.Zed": "Zed",
+      "brave-browser": "Brave"
     }
   },
 
@@ -204,6 +208,9 @@
       "balanced": "",
       "power-saver": ""
     }
+  },
+  "custom/arch": {
+    "format": "󰣇"
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
