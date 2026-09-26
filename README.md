@@ -11,7 +11,7 @@ Los archivos ya contienen las configuraciones correspondientes, a continuación 
 > chmod +x nombre_archivo
 > ```
 
-![](/assets/cap1.png)
+![](/assets/cap4.png)
 
 #### [Nerd Font](https://www.nerdfonts.com/cheat-sheet)
 
