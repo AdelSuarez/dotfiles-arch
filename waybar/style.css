@@ -1,3 +1,12 @@
+/*
+   ____  _         _           
+  / ___|| |_ _   _| | ___  ___ 
+  \___ \| __| | | | |/ _ \/ __|
+   ___) | |_| |_| | |  __/\__ \
+  |____/ \__|\__, |_|\___||___/
+              |___/              
+*/
+
 * {
   /* `otf-font-awesome` is required to be installed for icons */
   font-family:
@@ -53,10 +62,10 @@ button {
 } */
 
 /* you can set a style on hover for any module like this */
-#pulseaudio:hover {
+/* #pulseaudio:hover {
   background-color: #a3aed2;
   color: #000000;
-}
+} */
 
 #workspaces button {
   /* padding: 0 4px; */
@@ -122,16 +131,20 @@ button {
 #custom-keyboard-layout,
 #mpd,
 #bluetooth {
-  padding: 3px 8px;
-  margin: 0.4em 0;
   /* margin-right: 0.2em; */
-  border-radius: 4px;
+  padding: 0 4px;
+  /* margin: 0.4em 0; */
+  /* border-radius: 4px;
   color: #c0caf5;
-  background-color: #2a2b3e;
+  background-color: #2a2b3e; */
+}
+
+#group-hardware {
+  padding: 0 20px;
 }
 
 #tray {
-  margin-right: 5px;
+  margin-right: 3px;
 }
 
 #window {
@@ -211,7 +224,9 @@ button {
   animation-direction: alternate; */
 }
 
-#power-profiles-daemon.performance {
+/* Power Profiles */
+
+/* #power-profiles-daemon.performance {
   background-color: #f7768e;
   color: #ffffff;
 }
@@ -239,7 +254,7 @@ button {
 #power-profiles-daemon.power-saver:hover {
   background-color: #338d58;
   color: #ffffff;
-}
+} */
 
 label:focus {
   background-color: #000000;
@@ -256,9 +271,9 @@ label:focus {
 /* background-color: #393e50; */
 /* } */
 
-#disk {
+/* #disk {
   background-color: #964b00;
-}
+} */
 
 /* #backlight { */
 /* background-color: #90b1b1; */
@@ -270,10 +285,10 @@ label:focus {
 /* background-color: #393e50; */
 /* } */
 
-#network.disconnected {
+/* #network.disconnected {
   background-color: #f7768e;
   color: #ffffff;
-}
+} */
 
 /* #pulseaudio { */
 /* background-color: #f1c40f; */
@@ -281,10 +296,10 @@ label:focus {
 /* color: #000000; */
 /* } */
 
-#pulseaudio.muted {
+/* #pulseaudio.muted {
   background-color: #90b1b1;
   color: #2a5c45;
-}
+} */
 
 #wireplumber {
   background-color: #fff0f5;

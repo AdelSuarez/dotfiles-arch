@@ -1,0 +1,301 @@
+//  __  __           _       _
+//  |  \/  | ___   __| |_   _| | ___  ___
+//  | |\/| |/ _ \ / _` | | | | |/ _ \/ __|
+//  | |  | | (_) | (_| | |_| | |  __/\__ \
+//  |_|  |_|\___/ \__,_|\__,_|_|\___||___/
+//
+
+{
+  // workspaces
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "persistent-workspaces": {
+      "*": [1, 2, 3, 4]
+    },
+    "warp-on-scroll": false,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "urgent": "",
+      "focused": "",
+      "default": "",
+      "active": "󰝤"
+    }
+  },
+
+  //   Titulos personalizado de las aplicaiones
+  "hyprland/window": {
+    "format": "{class}",
+    "rewrite": {
+      "Alacritty": "󰆍  Alacritty",
+      "com.microsoft.VSCode": "󰨞  VS Code",
+      "spotify": " Spotify",
+      "Firefox": " Firefox",
+      "Discord": "  Discord",
+      "Steam": " Steam",
+      "dev.zed.Zed": "Zed",
+      "brave-browser": "Brave"
+    }
+  },
+
+  // Cambio de teclado (Solo si se tiene distribucion en ingles y espanol)
+  "custom/keyboard-layout": {
+    "exec": "~/.config/waybar/scripts/keyboard-layout.sh",
+    "return-type": "json",
+    "format": "⌨ {text}",
+    "on-click": "~/.config/hypr/scripts/switch-kb-layout.sh",
+    "interval": 2,
+    "restart-interval": 1
+  },
+
+  "keyboard-state": {
+    "numlock": true,
+    "capslock": true,
+    "format": "{name} {icon}",
+    "format-icons": {
+      "locked": "",
+      "unlocked": ""
+    }
+  },
+
+  "sway/mode": {
+    "format": "<span style=\"italic\">{}</span>"
+  },
+
+  "sway/scratchpad": {
+    "format": "{icon} {count}",
+    "show-empty": false,
+    "format-icons": ["", ""],
+    "tooltip": true,
+    "tooltip-format": "{app}: {title}"
+  },
+
+  "mpd": {
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    "unknown-tag": "N/A",
+    "interval": 5,
+    "consume-icons": {
+      "on": " "
+    },
+    "random-icons": {
+      "off": "<span color=\"#f53c3c\"></span> ",
+      "on": " "
+    },
+    "repeat-icons": {
+      "on": " "
+    },
+    "single-icons": {
+      "on": " "
+    },
+    "state-icons": {
+      "paused": "",
+      "playing": ""
+    },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)"
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+
+  "tray": {
+    "spacing": 10
+  },
+
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+
+  "cpu": {
+    "format": "/ {usage}% ",
+    "tooltip": false
+  },
+
+  "memory": {
+    "format": "/ {}% "
+  },
+
+  "disk": {
+    "interval": 30,
+    "format": "{percentage_free}% 󰋊"
+  },
+
+  "group/hardware": {
+    "orientation": "inherit",
+    // "drawer": {
+    //   "transition-duration": 300,
+    //   "children-class": "not-memory",
+    //   "transition-left-to-right": false
+    // },
+    "modules": ["disk", "cpu", "memory"]
+  },
+
+  // "temperature": {
+  //   "thermal-zone": 4,
+  //   // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+  //   "critical-threshold": 80,
+  //   // "format-critical": "{temperatureC}°C {icon}",
+  //   "format": "{temperatureC}°C {icon}",
+  //   "format-icons": ["", "", ""]
+  // },
+
+  // "temperature": {
+  //   "thermal-zone": 6,
+  //   "critical-threshold": 80,
+  //   "format": "{temperatureC}°C {icon}",
+  //   "format-critical": "{temperatureC}°C",
+  //   "format-icons": ["", "", ""],
+  //   "interval": 3
+  // },
+
+  "backlight": {
+    "format": "{icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
+  },
+
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}",
+    "format-full": "{icon}",
+    "format-charging": "",
+    "format-plugged": "󰂄",
+    // "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "battery#bat2": {
+    "bat": "BAT2"
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+
+  "custom/arch": {
+    "format": "󰣇"
+  },
+
+  "network": {
+    "interval": 1,
+    "format-wifi": "{icon}",
+    "format-ethernet": "",
+    "tooltip-format": "{ifname} via {gwaddr} \n{ifname}: {ipaddr}/{cidr}\nSSID: {essid} /  {bandwidthDownBits:3}  {bandwidthUpBits:3} ",
+    "format-linked": "",
+    "format-disconnected": "󰖪",
+    "format-alt": " {bandwidthDownBits:3}    {bandwidthUpBits:3}",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
+  },
+
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{icon}",
+    "format-bluetooth": "{icon} ",
+    "tooltip-format": "{volume}%",
+    "format-bluetooth-muted": " {icon}",
+    "format-muted": "",
+    // "format-source": "{volume}% ",
+    "format-source-muted": "",
+
+    // "drawer": {
+    //   "transition-duration": 300,
+    //   "children-class": "not-memory",
+    //   "transition-left-to-right": false
+    // },
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+
+  // with .sh - spotify
+  "custom/media": {
+    "exec": "~/.config/waybar/scripts/mediaplayer.sh",
+    "format": "{}",
+    "return-type": "json",
+    "max-length": 40,
+    "restart-interval": 5,
+    "on-click": "playerctl -p spotify play-pause",
+    "on-scroll-up": "playerctl -p spotify next",
+    "on-scroll-down": "playerctl -p spotify previous"
+  },
+
+  "custom/power": {
+    "format": "⏻ ",
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+    "menu-actions": {
+      "shutdown": "shutdown",
+      "reboot": "reboot",
+      "suspend": "systemctl suspend",
+      "hibernate": "systemctl hibernate"
+    }
+  },
+
+  // "custom/updates": {
+  //   "exec": "~/.config/waybar/scripts/updates.sh",
+  //   "interval": 60,
+  //   "return-type": "text",
+  //   "format": "  {}",
+  //   "tooltip": false
+  // }
+
+  "bluetooth": {
+    "format": "",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    // "format-device-preference": [ "device1", "device2" ], // Prioridad de dispositivos
+    "tooltip-format": "{controller_alias}\t\n{num_connections} conectados",
+    "tooltip-format-connected": "{num_connections} conectados\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%",
+    // "on-click": "blueman-manager" // Opcional: abre el gestor al hacer clic
+    "on-click": "bash -c 'if bluetoothctl show | grep -q \"Powered: yes\"; then bluetoothctl power off; else bluetoothctl power on; fi'"
+  },
+
+  "custom/updates": {
+    "format": " {}",
+    "escape": true,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/updates.sh",
+    "restart-interval": 60,
+    "on-click": "alacritty --class dotfiles-floating -e ~/.config/waybar/scripts/installupdates.sh",
+    "on-click-right": "~/.config/waybar/scripts/software.sh"
+  }
+}
